@@ -47,6 +47,7 @@ Challenge_technique_Travel_Assistant/
 ├── tools/              # Outils de vol (statut, disponibilité, prix)
 ├── rag/                # Pipeline RAG (retriever, Qdrant)
 ├── ingestion/          # Pipeline d'ingestion (extract, clean, chunking, embedder)
+├── rag_data/           # Dossier contenant les documents PDF sources à ingérer
 ├── speech/             # SpeechToText (Whisper + VAD)
 ├── database/           # Modèles SQLAlchemy, initialisation (`init_db.py`) et vérification (`check_db.py`)
 ├── frontend/           # Interface HTML/CSS/JS
