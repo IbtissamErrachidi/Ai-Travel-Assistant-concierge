@@ -32,6 +32,8 @@
 
 ## Architecture
 
+> **Note sur les données** : Les documents sources (politiques de bagages, conditions générales de vente et manuels) ont été collectés et extraits directement à partir des ressources officielles de la **Royal Air Maroc (RAM)**.
+
 Voici le diagramme d'architecture globale de l'**AI Travel Assistant**, détaillant le pipeline d'ingestion, l'orchestration LangGraph, la recherche hybride Qdrant et l'intégration avec les outils SQLite :
 
 <img width="1632" height="964" alt="LLM Travel Assistant Architecture Diagram" src="https://github.com/user-attachments/assets/e6157cea-03d4-46b1-89ba-d7a075b9a5a5" />
