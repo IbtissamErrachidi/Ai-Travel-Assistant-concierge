@@ -1,0 +1,5 @@
+# Database & ORM
+SQLAlchemy==2.1.1
+
+# Document Parsing
+pdfplumber==0.11.10

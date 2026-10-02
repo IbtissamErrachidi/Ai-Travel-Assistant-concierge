@@ -1,0 +1,32 @@
+[project]
+name = "challenge-technique-travel-assistant"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "av>=19.0.0",
+    "bcrypt==4.0.1",
+    "fastapi>=0.142.2",
+    "fastembed>=0.8.1",
+    "faster-whisper>=1.2.1",
+    "langchain>=1.4.3",
+    "langchain-core>=1.6.6",
+    "langchain-google-genai>=4.4.0",
+    "langchain-ollama>=1.1.0",
+    "langchain-text-splitters>=1.1.2",
+    "librosa>=1.0.0",
+    "numpy>=2.5.3",
+    "passlib>=1.7.4",
+    "pdfplumber>=0.11.10",
+    "pydantic>=2.13.5",
+    "python-dotenv>=1.2.4",
+    "python-jose>=3.5.0",
+    "python-multipart>=0.0.32",
+    "qdrant-client>=1.19.1",
+    "sentence-transformers>=6.1.0",
+    "soundfile>=0.14.0",
+    "sqlalchemy==2.1.1",
+    "torch>=2.14.1",
+    "torchaudio>=2.11.0",
+    "transformers>=5.18.0",
+    "uvicorn>=0.54.0",
+]
