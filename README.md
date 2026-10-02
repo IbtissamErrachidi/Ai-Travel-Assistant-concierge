@@ -86,13 +86,11 @@ uv run python database/init_db.py
 # (Optionnel) Vérifier le contenu de la base de données via le script de test
 uv run python database/check_db.py
 
-# 6. Lancer le pipeline complet d'ingestion des documents RAG :
-# - Extraction (extract.py)
-# - Nettoyage (clean.py)
-# - Découpage en morceaux (chunking.py)
-# - Vectorisation et stockage (embedder.py)
-uv run python ingestion/ingest.py
-
+# 6. Exécuter le pipeline d'ingestion des documents RAG fichier par fichier :
+uv run python ingestion/extract.py     # Étape 1 : Extraction du texte des PDF
+uv run python ingestion/clean.py       # Étape 2 : Nettoyage du texte extrait
+uv run python ingestion/chunking.py    # Étape 3 : Découpage en morceaux (chunks)
+uv run python ingestion/embedder.py    # Étape 4 : Vectorisation et stockage dans Qdrant
 # 7. Démarrer le serveur de l'application
 uv run python run_server.py
 
