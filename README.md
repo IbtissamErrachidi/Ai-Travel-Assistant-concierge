@@ -36,7 +36,7 @@
 
 Voici le diagramme d'architecture globale de l'**AI Travel Assistant**, détaillant le pipeline d'ingestion, l'orchestration LangGraph, la recherche hybride Qdrant et l'intégration avec les outils SQLite :
 
-<img width="1632" height="964" alt="LLM Travel Assistant Architecture Diagram" src="https://github.com/user-attachments/assets/e6157cea-03d4-46b1-89ba-d7a075b9a5a5" />
+<img width="1632" height="964" alt="AI_LLM Travel Assistant Pipeline" src="https://github.com/user-attachments/assets/63192e4d-bfc6-4d41-b20d-7e9520cf21a2" />
 
 
 ### Structure du projet
