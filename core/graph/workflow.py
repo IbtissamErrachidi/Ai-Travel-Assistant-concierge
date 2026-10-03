@@ -203,18 +203,35 @@ def call_final_llm(state: AgentState):
 def fallback_node(state: AgentState):
     logger.info("--- NODE: FALLBACK ---")
     
-    class SimpleRoute:
-        query = state.get("user_query", "")
-
-    class SimpleRoutingResult:
-        needs_clarification = state.get("needs_clarification", False)
-        clarification_question = state.get("clarification_question")
-
-    if not state.get("needs_clarification") and not state.get("plan"):
-        res_message = "Bonjour ! Je suis votre assistant de voyage intelligent. Comment puis-je vous aider aujourd'hui ?"
+    query = (state.get("user_query") or "").strip().lower()
+    
+    # Réponses instantanées pour les salutations courantes (zéro latence)
+    quick_greetings = {
+        "hello": "Hello! I'm your travel assistant. How can I help you today?",
+        "hi": "Hi there! I'm your travel assistant. How can I help you today?",
+        "hey": "Hey! How can I assist you with your travel plans today?",
+        "bonjour": "Bonjour ! Je suis votre assistant de voyage intelligent. Comment puis-je vous aider aujourd'hui ?",
+        "salut": "Salut ! Comment puis-je vous aider pour vos voyages aujourd'hui ?",
+        "مرحباً": "مرحباً! أنا مساعد السفر الذكي الخاص بك. كيف يمكنني مساعدتك اليوم؟",
+        "سلام": "وعليكم السلام! كيف يمكنني مساعدتك في سفرك اليوم؟"
+    }
+    
+    # Si l'utilisateur tape une salutation simple, on répond instantanément dans sa langue
+    if query in quick_greetings and not state.get("needs_clarification"):
+        res_message = quick_greetings[query]
     else:
-        res = fallback.generate_response(SimpleRoute(), SimpleRoutingResult())
-        res_message = res.message
+        class SimpleRoute:
+            query = state.get("user_query", "")
+
+        class SimpleRoutingResult:
+            needs_clarification = state.get("needs_clarification", False)
+            clarification_question = state.get("clarification_question")
+
+        if not state.get("needs_clarification") and not state.get("plan"):
+            res_message = "Bonjour ! Je suis votre assistant de voyage intelligent. Comment puis-je vous aider aujourd'hui ?"
+        else:
+            res = fallback.generate_response(SimpleRoute(), SimpleRoutingResult())
+            res_message = res.message
 
     return {
         "final_answer": res_message,
